@@ -25,7 +25,6 @@ public class Main {
 
     private static void lab2() {
         InputStream in = new ByteArrayInputStream("안녕\n잘가".getBytes());
-
         Scanner scanner = new Scanner(in);
 
         System.out.println("명령) ");
