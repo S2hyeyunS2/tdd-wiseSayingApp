@@ -61,7 +61,7 @@ public class CommandTest {
     @Test
     @DisplayName("""
             cmd.getParamAsInt("number",0) == 0
-            cmd.getName("Paul") == "Paul"
+             and cmd.getName("Paul") == "Paul"
             """)
     public void t7(){
         Command cmd=new Command("목록?number=10&name=Paul");
