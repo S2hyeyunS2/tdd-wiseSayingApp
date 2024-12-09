@@ -2,6 +2,8 @@ package com.ll;
 
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 public class CommandTest {
     @Test
     public void t1(){
