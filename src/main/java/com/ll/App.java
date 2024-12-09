@@ -10,24 +10,26 @@ public class App {
     private final SystemController systemController;
     private final WiseSayingController wiseSayingController;
 
-    public App(Scanner scanner){
-        this.scanner=scanner;
-        this.systemController=new SystemController();
-        this.wiseSayingController=new WiseSayingController(scanner);
+    public App(Scanner scanner) {
+        this.scanner = scanner;
+        this.systemController = new SystemController();
+        this.wiseSayingController = new WiseSayingController(scanner);
     }
 
-    public void run(){
+    public void run() {
         System.out.println("== 명언 앱 ==");
 
-        while(true){
+        while (true) {
             System.out.print("명령) ");
-            String cmd=scanner.nextLine();
+            String cmd = scanner.nextLine();
 
-            if("종료".equals(cmd)){
+            if ("종료".equals(cmd)) {
                 SystemController.actionExit();
                 break;
             } else if ("등록".equals(cmd)) {
                 wiseSayingController.actionAdd();
+            } else if ("목록".equals(cmd)) {
+                wiseSayingController.actionList();
             }
         }
     }
