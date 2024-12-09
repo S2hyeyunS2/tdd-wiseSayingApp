@@ -26,15 +26,21 @@ public class App {
             String[] cmdBits=cmd.split("\\?");
             String actionName=cmdBits[0];
 
-            if ("종료".equals(cmd)) {
-                SystemController.actionExit();
-                break;
-            } else if ("등록".equals(actionName)) {
-                wiseSayingController.actionAdd();
-            } else if ("목록".equals(actionName)) {
-                wiseSayingController.actionList();
-            } else if ("삭제".equals(actionName)) {
-                wiseSayingController.actionDelete(cmd);
+            switch (actionName){
+                case "종료":
+                    systemController.actionExit();
+                    return;
+                case "등록":
+                    wiseSayingController.actionAdd();
+                    break;
+                case "목록":
+                    wiseSayingController.actionList();
+                    break;
+                case "삭제":
+                    wiseSayingController.actionDelete(cmd);
+                    break;
+                default:
+                    System.out.println("올바른 명령어가 아닙니다.");
             }
         }
     }
