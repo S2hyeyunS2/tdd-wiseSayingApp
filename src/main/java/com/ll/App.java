@@ -23,9 +23,9 @@ public class App {
             System.out.print("명령) ");
             String cmd = scanner.nextLine();
 
-            Command commnad=new Command(cmd);
+            Command command=new Command(cmd);
 
-            switch (commnad.getActionName()){
+            switch (command.getActionName()){
                 case "종료":
                     systemController.actionExit();
                     return;
@@ -36,7 +36,10 @@ public class App {
                     wiseSayingController.actionList();
                     break;
                 case "삭제":
-                    wiseSayingController.actionDelete(commnad);
+                    wiseSayingController.actionDelete(command);
+                    break;
+                case "수정":
+                    wiseSayingController.actionModify(command);
                     break;
                 default:
                     System.out.println("올바른 명령어가 아닙니다.");
