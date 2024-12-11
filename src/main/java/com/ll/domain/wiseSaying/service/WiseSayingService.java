@@ -9,12 +9,12 @@ import java.util.Optional;
 public class WiseSayingService {
     private final WiseSayingRepository wiseSayingRepository;
 
-    public WiseSayingService(){
-        this.wiseSayingRepository=new WiseSayingRepository();
+    public WiseSayingService() {
+        this.wiseSayingRepository = new WiseSayingRepository();
     }
 
     public WiseSaying add(String content, String author) {
-        WiseSaying wiseSaying=new WiseSaying(0, content,author);
+        WiseSaying wiseSaying = new WiseSaying(0, content, author);
 
         wiseSayingRepository.save(wiseSaying);
 
@@ -31,5 +31,12 @@ public class WiseSayingService {
 
     public Optional<WiseSaying> findById(int id) {
         return wiseSayingRepository.findById(id);
+    }
+
+    public void modify(WiseSaying wiseSaying, String content, String author) {
+        wiseSaying.setContent(content);
+        wiseSaying.setAuthor(author);
+
+        wiseSayingRepository.save(wiseSaying);
     }
 }

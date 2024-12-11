@@ -10,12 +10,16 @@ public class WiseSayingRepository {
     private final List<WiseSaying> wiseSayings;
     private int lastId;
 
-    public WiseSayingRepository(){
-        this.lastId=0;
-        this.wiseSayings=new ArrayList<>();
+    public WiseSayingRepository() {
+        this.wiseSayings = new ArrayList<>();
+        this.lastId = 0;
     }
 
     public WiseSaying save(WiseSaying wiseSaying) {
+        if (!wiseSaying.isNew()) {
+            return wiseSaying;
+        }
+
         wiseSaying.setId(++lastId);
         wiseSayings.add(wiseSaying);
         return wiseSaying;
@@ -26,12 +30,12 @@ public class WiseSayingRepository {
     }
 
     public boolean deleteById(int id) {
-        return wiseSayings.removeIf(wiseSaying-> wiseSaying.getId()==id);
+        return wiseSayings.removeIf(wiseSaying -> wiseSaying.getId() == id);
     }
 
     public Optional<WiseSaying> findById(int id) {
         return wiseSayings.stream()
-                .filter(wiseSaying -> wiseSaying.getId()==id)
+                .filter(wiseSaying -> wiseSaying.getId() == id)
                 .findFirst();
     }
 }
